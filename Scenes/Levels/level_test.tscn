@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl1ycvb2s7eky"]
+[gd_scene load_steps=7 format=3 uid="uid://dl1ycvb2s7eky"]
 
 [ext_resource type="PackedScene" uid="uid://donho2hi1a1k3" path="res://Scenes/player.tscn" id="1_iuxj4"]
 
@@ -7,6 +7,10 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_j420c"]
 
 [sub_resource type="Environment" id="Environment_24vcw"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_113vr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yw2u0"]
 
 [node name="LevelTest" type="Node3D"]
 
@@ -37,3 +41,20 @@ skeleton = NodePath("../MeshInstance3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
 shape = SubResource("BoxShape3D_j420c")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.2, 3)
+mesh = SubResource("SphereMesh_113vr")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D"]
+shape = SubResource("SphereShape3D_yw2u0")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3.5, 1)
+light_specular = 4.0
+light_bake_mode = 1
+omni_range = 10.0
+omni_attenuation = 0.5
