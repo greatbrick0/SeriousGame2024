@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dl1ycvb2s7eky"]
+[gd_scene load_steps=8 format=3 uid="uid://dl1ycvb2s7eky"]
 
 [ext_resource type="PackedScene" uid="uid://donho2hi1a1k3" path="res://Scenes/player.tscn" id="1_iuxj4"]
+[ext_resource type="PackedScene" uid="uid://fbuctth7geda" path="res://Scenes/interact_area.tscn" id="2_lohlm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0wbba"]
 
@@ -24,6 +25,7 @@ mesh = SubResource("BoxMesh_0wbba")
 shape = SubResource("BoxShape3D_j420c")
 
 [node name="Player" parent="." instance=ExtResource("1_iuxj4")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -42,6 +44,16 @@ skeleton = NodePath("../MeshInstance3D")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
 shape = SubResource("BoxShape3D_j420c")
 
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 1, 0, 2, -5)
+mesh = SubResource("BoxMesh_0wbba")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D4/StaticBody3D"]
+shape = SubResource("BoxShape3D_j420c")
+
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.2, 3)
 mesh = SubResource("SphereMesh_113vr")
@@ -51,6 +63,9 @@ skeleton = NodePath("../MeshInstance3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D"]
 shape = SubResource("SphereShape3D_yw2u0")
+
+[node name="InteractArea" parent="MeshInstance3D3" instance=ExtResource("2_lohlm")]
+hoverText = "Click To Stare At The Orb"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3.5, 1)
