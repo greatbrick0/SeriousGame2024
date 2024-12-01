@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dl1ycvb2s7eky"]
+[gd_scene load_steps=9 format=3 uid="uid://dl1ycvb2s7eky"]
 
 [ext_resource type="PackedScene" uid="uid://donho2hi1a1k3" path="res://Scenes/player.tscn" id="1_iuxj4"]
 [ext_resource type="PackedScene" uid="uid://fbuctth7geda" path="res://Scenes/interact_area.tscn" id="2_lohlm"]
+[ext_resource type="PackedScene" uid="uid://c2jvxwal0ywq0" path="res://Scenes/npc.tscn" id="3_kkxdx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0wbba"]
 
@@ -66,6 +67,9 @@ shape = SubResource("SphereShape3D_yw2u0")
 
 [node name="InteractArea" parent="MeshInstance3D3" instance=ExtResource("2_lohlm")]
 hoverText = "Click To Stare At The Orb"
+
+[node name="NPC" parent="MeshInstance3D3" instance=ExtResource("3_kkxdx")]
+transform = Transform3D(-0.708266, 0, 0.705946, 0, 1, 0, -0.705946, 0, -0.708266, -6.19063, -0.7, -0.169159)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3.5, 1)

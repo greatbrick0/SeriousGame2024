@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2jvxwal0ywq0"]
+
+[ext_resource type="Script" path="res://Scripts/npc.gd" id="1_ldpq6"]
+[ext_resource type="PackedScene" uid="uid://ddmoxnjpeco56" path="res://Standing Idle.fbx" id="1_mbcd2"]
+[ext_resource type="PackedScene" uid="uid://fbuctth7geda" path="res://Scenes/interact_area.tscn" id="2_esmqh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8xq4f"]
+radius = 0.3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3hsmx"]
+size = Vector3(0.8, 2, 0.8)
+
+[node name="NPC" type="Node3D"]
+script = ExtResource("1_ldpq6")
+
+[node name="Standing Idle" parent="." instance=ExtResource("1_mbcd2")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CapsuleShape3D_8xq4f")
+
+[node name="InteractArea" parent="." instance=ExtResource("2_esmqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" parent="InteractArea" index="0"]
+shape = SubResource("BoxShape3D_3hsmx")
+
+[connection signal="activated" from="InteractArea" to="." method="_on_interact_area_activated"]
+
+[editable path="InteractArea"]
