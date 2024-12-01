@@ -1,11 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl1ycvb2s7eky"]
+[gd_scene load_steps=15 format=3 uid="uid://dl1ycvb2s7eky"]
 
 [ext_resource type="PackedScene" uid="uid://donho2hi1a1k3" path="res://Scenes/player.tscn" id="1_iuxj4"]
 [ext_resource type="PackedScene" uid="uid://dipeayo17fumu" path="res://Scenes/room.tscn" id="2_02c20"]
+[ext_resource type="PackedScene" uid="uid://fbuctth7geda" path="res://Scenes/interact_area.tscn" id="2_lohlm"]
 [ext_resource type="PackedScene" uid="uid://c2jvxwal0ywq0" path="res://Scenes/npc.tscn" id="3_kkxdx"]
 [ext_resource type="PackedScene" uid="uid://ui0u21aara8j" path="res://Scenes/hallway.tscn" id="4_4bw1b"]
+[ext_resource type="Material" uid="uid://cbl2oolktqj6l" path="res://Materials/RoomFloorMat.tres" id="4_oobux"]
+[ext_resource type="PackedScene" uid="uid://buxclnnfqbksi" path="res://Laying Mild Cough.fbx" id="6_e4k1h"]
+[ext_resource type="PackedScene" uid="uid://dawkph3wbwxd" path="res://Scenes/Hud Elements/patient_quiz.tscn" id="8_2pc6q"]
+[ext_resource type="Material" uid="uid://jjcxry32x2bg" path="res://Materials/BoardMat.tres" id="9_8ns7v"]
 
 [sub_resource type="Environment" id="Environment_24vcw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nm7cy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gg57b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_70d8l"]
+size = Vector3(1.1, 2, 2.2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g1jv8"]
+size = Vector2(2.5, 1.5)
+orientation = 2
 
 [node name="LevelTest" type="Node3D"]
 
@@ -19,37 +35,148 @@ environment = SubResource("Environment_24vcw")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 5, 0)
 
-[node name="Room1" parent="." instance=ExtResource("2_02c20")]
+[node name="Rooms" type="Node3D" parent="."]
+
+[node name="Room1" parent="Rooms" instance=ExtResource("2_02c20")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
 
-[node name="Room2" parent="." instance=ExtResource("2_02c20")]
+[node name="Room2" parent="Rooms" instance=ExtResource("2_02c20")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.5, 0, 0)
+
+[node name="Hallways" type="Node3D" parent="."]
+
+[node name="Hallway1" parent="Hallways" instance=ExtResource("4_4bw1b")]
+
+[node name="Hallway2" parent="Hallways" instance=ExtResource("4_4bw1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Hallway3" parent="Hallways" instance=ExtResource("4_4bw1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Hallway4" parent="Hallways" instance=ExtResource("4_4bw1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+
+[node name="Hallway5" parent="Hallways" instance=ExtResource("4_4bw1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="Hallway6" parent="Hallways" instance=ExtResource("4_4bw1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+
+[node name="Hallway7" parent="Hallways" instance=ExtResource("4_4bw1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
 
 [node name="NPC" parent="." instance=ExtResource("3_kkxdx")]
 transform = Transform3D(-0.708266, 0, 0.705946, 0, 1, 0, -0.705946, 0, -0.708266, 4.309, 0.5, 2.831)
+npcName = "Mr. Schaefer"
+npcMonologue = "Vaping is bad."
 
 [node name="NPC2" parent="." instance=ExtResource("3_kkxdx")]
 transform = Transform3D(0.705872, 0, 0.70834, 0, 1, 0, -0.70834, 0, 0.705872, 4.309, 0.5, -3.34)
-npcName = "Student"
+npcName = "Spencer"
 npcMonologue = "I hear the professor in the other room knows more about vaping. "
 heightMult = 0.85
 
-[node name="Hallway" parent="." instance=ExtResource("4_4bw1b")]
+[node name="NPC3" parent="." instance=ExtResource("3_kkxdx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.21076, 0.5, -0.310987)
+npcName = "Mr. Gapany"
+npcMonologue = "EVALI stands for E-Cigarette or Vaping use-Associated Lung Injury."
 
-[node name="Hallway2" parent="." instance=ExtResource("4_4bw1b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+[node name="Patient" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 0)
 
-[node name="Hallway3" parent="." instance=ExtResource("4_4bw1b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Patient"]
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 2, 0, 0.4, 0)
+material_override = ExtResource("4_oobux")
+mesh = SubResource("BoxMesh_nm7cy")
+skeleton = NodePath("../..")
 
-[node name="Hallway4" parent="." instance=ExtResource("4_4bw1b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+[node name="StaticBody3D" type="StaticBody3D" parent="Patient/MeshInstance3D"]
 
-[node name="Hallway5" parent="." instance=ExtResource("4_4bw1b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Patient/MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_gg57b")
 
-[node name="Hallway6" parent="." instance=ExtResource("4_4bw1b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+[node name="Laying Mild Cough" parent="Patient" instance=ExtResource("6_e4k1h")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.196, 0.114062)
 
-[node name="Hallway7" parent="." instance=ExtResource("4_4bw1b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+[node name="Skeleton3D" parent="Patient/Laying Mild Cough" index="0"]
+bones/0/position = Vector3(-0.000415661, 1.13407, -0.0305979)
+bones/0/rotation = Quaternion(-0.700293, 0.007959, 0.00370816, 0.713801)
+bones/1/rotation = Quaternion(-0.0709724, -0.0106303, 0.00556084, 0.997406)
+bones/2/rotation = Quaternion(-0.00281327, -0.0213116, -0.00107539, 0.999768)
+bones/3/rotation = Quaternion(0.0101745, -0.0213, 9.27409e-05, 0.999721)
+bones/4/rotation = Quaternion(-0.0872251, 0.00148914, -0.0157358, 0.996063)
+bones/5/rotation = Quaternion(0.0755207, -0.0211559, 0.00920538, 0.996877)
+bones/7/rotation = Quaternion(-0.553803, 0.511376, -0.567208, -0.331771)
+bones/8/rotation = Quaternion(0.287487, -0.420402, -0.222045, 0.83145)
+bones/9/rotation = Quaternion(2.79147e-07, -0.00405015, -0.773572, 0.633696)
+bones/10/rotation = Quaternion(0.116632, 0.305412, 0.0466212, 0.9439)
+bones/11/rotation = Quaternion(0.220637, 0.147886, -0.31277, 0.911934)
+bones/12/rotation = Quaternion(-0.0632815, 0.0294652, 0.24202, 0.967757)
+bones/13/rotation = Quaternion(-0.207248, 0.0417432, 0.299108, 0.930505)
+bones/15/rotation = Quaternion(0.320025, -0.0538236, -0.100293, 0.940547)
+bones/16/rotation = Quaternion(0.230672, 1.66147e-08, 0.0187924, 0.97285)
+bones/17/rotation = Quaternion(0.230671, 1.07401e-07, 0.0187927, 0.97285)
+bones/19/rotation = Quaternion(0.329203, 0.0304635, -0.026149, 0.943405)
+bones/20/rotation = Quaternion(0.238183, -1.6691e-08, 0.0194044, 0.971026)
+bones/21/rotation = Quaternion(0.230809, 2.64627e-08, 0.0188038, 0.972817)
+bones/23/rotation = Quaternion(0.273572, 0.0145368, 0.00721938, 0.961715)
+bones/24/rotation = Quaternion(0.164978, 2.60847e-07, 0.0134407, 0.986206)
+bones/25/rotation = Quaternion(0.163484, -9.71959e-08, 0.0133186, 0.986456)
+bones/27/rotation = Quaternion(0.12304, 0.00203501, 0.0298378, 0.991951)
+bones/28/rotation = Quaternion(0.13181, -9.37435e-08, 0.010738, 0.991217)
+bones/29/rotation = Quaternion(0.13181, -4.79995e-08, 0.0107381, 0.991217)
+bones/31/rotation = Quaternion(0.503868, 0.556921, -0.539625, 0.380475)
+bones/32/rotation = Quaternion(0.430521, 0.416778, 0.145087, 0.787336)
+bones/33/rotation = Quaternion(-1.30061e-07, 0.00338157, 0.645846, 0.76346)
+bones/34/rotation = Quaternion(0.083948, -0.118506, 0.0377568, 0.988678)
+bones/35/rotation = Quaternion(0.13404, 0.0314106, 0.261845, 0.95524)
+bones/36/rotation = Quaternion(-0.0435028, -0.018501, -0.193015, 0.980057)
+bones/37/rotation = Quaternion(-0.212067, -0.043821, -0.285094, 0.933718)
+bones/39/rotation = Quaternion(0.224705, -0.00408627, -0.0432181, 0.973459)
+bones/40/rotation = Quaternion(0.120227, -6.92648e-08, -0.0123201, 0.99267)
+bones/41/rotation = Quaternion(0.120227, -1.53796e-07, -0.0123204, 0.99267)
+bones/43/rotation = Quaternion(0.215366, -0.000563144, -0.0576356, 0.974831)
+bones/44/rotation = Quaternion(0.120258, -1.50669e-07, -0.0123234, 0.992666)
+bones/45/rotation = Quaternion(0.120227, -2.91576e-07, -0.0123207, 0.99267)
+bones/47/rotation = Quaternion(0.182116, 0.00388177, -0.0774624, 0.980214)
+bones/48/rotation = Quaternion(0.120227, -1.71856e-07, -0.0123206, 0.99267)
+bones/49/rotation = Quaternion(0.120227, -1.54168e-07, -0.0123205, 0.99267)
+bones/51/rotation = Quaternion(0.12663, 0.00591116, -0.0951751, 0.987356)
+bones/52/rotation = Quaternion(0.119411, -1.49899e-07, -0.0122373, 0.992769)
+bones/53/rotation = Quaternion(0.120235, -1.28165e-07, -0.0123212, 0.992669)
+bones/55/rotation = Quaternion(-0.154231, 0.0217206, 0.983468, 0.092366)
+bones/56/rotation = Quaternion(-0.0607713, 0.0654047, -0.0647984, 0.993896)
+bones/57/rotation = Quaternion(0.202964, 0.352337, 0.0144108, 0.913486)
+bones/58/rotation = Quaternion(0.409131, -3.2933e-07, -9.14094e-08, 0.912476)
+bones/60/rotation = Quaternion(0.156901, 0.0323104, 0.976444, -0.14455)
+bones/61/rotation = Quaternion(-0.0836256, -0.0653833, 0.00357549, 0.994344)
+bones/62/rotation = Quaternion(0.280938, -0.349351, -0.0448789, 0.892756)
+bones/63/rotation = Quaternion(0.371142, 2.83466e-07, 2.47283e-07, 0.928576)
+
+[node name="AnimationPlayer" parent="Patient/Laying Mild Cough" index="1"]
+speed_scale = 0.0
+
+[node name="InteractArea" parent="Patient" instance=ExtResource("2_lohlm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+menuRef = ExtResource("8_2pc6q")
+hoverText = "Take Quiz"
+
+[node name="CollisionShape3D" parent="Patient/InteractArea" index="0"]
+shape = SubResource("BoxShape3D_70d8l")
+
+[node name="Board" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 2, -4.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Board"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+material_override = ExtResource("9_8ns7v")
+mesh = SubResource("PlaneMesh_g1jv8")
+
+[node name="Label3D" type="Label3D" parent="Board"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.02)
+text = "94% of all people 
+identified as having EVALI 
+required hospital care."
+
+[editable path="Patient/Laying Mild Cough"]
+[editable path="Patient/InteractArea"]

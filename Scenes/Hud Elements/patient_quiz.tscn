@@ -1,0 +1,192 @@
+[gd_scene load_steps=6 format=3 uid="uid://dawkph3wbwxd"]
+
+[ext_resource type="Script" path="res://Scripts/patient_quiz.gd" id="1_1gbpy"]
+[ext_resource type="Script" path="res://Scripts/QuizQuestion.gd" id="2_w34x0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcqix"]
+bg_color = Color(0.162066, 0.162066, 0.162065, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Resource" id="Resource_v8wnj"]
+script = ExtResource("2_w34x0")
+questionText = "What is EVALI?"
+questionType = 0
+questionAnswer = "E-Cigarette or Vaping use-Associated Lung Injury"
+options = Array[String](["Electric or Voltage use-Associated Lung Injury", "E-Cigarette or Vaping use-Associated Lung Injury", "Evaluation of biometrics", "E-Cig and Vape Altered Long-term Investments"])
+
+[sub_resource type="Resource" id="Resource_icwor"]
+script = ExtResource("2_w34x0")
+questionText = "What percentage of people with EVALI had to recieve hospital care?"
+questionType = 3
+questionAnswer = "94"
+options = Array[String](["%"])
+
+[node name="PatientQuiz" type="Panel"]
+custom_minimum_size = Vector2(200, 100)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -300.0
+offset_right = 170.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xcqix")
+script = ExtResource("1_1gbpy")
+questions = Array[ExtResource("2_w34x0")]([SubResource("Resource_v8wnj"), SubResource("Resource_icwor")])
+
+[node name="Result" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Result"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = 190.0
+grow_horizontal = 2
+text = "Correct"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ContinueButton" type="Button" parent="Result"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 200.0
+offset_right = 265.0
+offset_bottom = 240.0
+text = "Continue"
+
+[node name="FourChoiceQuestion" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="FourChoiceQuestion"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xcqix")
+
+[node name="Label" type="Label" parent="FourChoiceQuestion/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = 60.0
+grow_horizontal = 2
+text = "?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Answer1" type="Button" parent="FourChoiceQuestion/Panel"]
+offset_left = 10.0
+offset_top = 70.0
+offset_right = 330.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 12
+text = "Option 1"
+
+[node name="Answer2" type="Button" parent="FourChoiceQuestion/Panel"]
+offset_left = 10.0
+offset_top = 130.0
+offset_right = 330.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 12
+text = "Option 2"
+
+[node name="Answer3" type="Button" parent="FourChoiceQuestion/Panel"]
+offset_left = 10.0
+offset_top = 190.0
+offset_right = 330.0
+offset_bottom = 240.0
+theme_override_font_sizes/font_size = 12
+text = "Option 3"
+
+[node name="Answer4" type="Button" parent="FourChoiceQuestion/Panel"]
+offset_left = 10.0
+offset_top = 250.0
+offset_right = 330.0
+offset_bottom = 300.0
+theme_override_font_sizes/font_size = 12
+text = "Option 4
+"
+
+[node name="NumberAnswer" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="NumberAnswer"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = 60.0
+grow_horizontal = 2
+text = "What is EVALI?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SpinBox" type="SpinBox" parent="NumberAnswer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -20.0
+offset_right = 70.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+custom_arrow_step = 1.0
+
+[node name="EnterButton" type="Button" parent="NumberAnswer"]
+offset_left = 75.0
+offset_top = 200.0
+offset_right = 265.0
+offset_bottom = 240.0
+text = "Enter
+"
+
+[connection signal="pressed" from="Result/ContinueButton" to="." method="ResultsContinue"]
+[connection signal="pressed" from="FourChoiceQuestion/Panel/Answer1" to="." method="FourChoiceAnswer" binds= [0]]
+[connection signal="pressed" from="FourChoiceQuestion/Panel/Answer2" to="." method="FourChoiceAnswer" binds= [1]]
+[connection signal="pressed" from="FourChoiceQuestion/Panel/Answer3" to="." method="FourChoiceAnswer" binds= [2]]
+[connection signal="pressed" from="FourChoiceQuestion/Panel/Answer4" to="." method="FourChoiceAnswer" binds= [3]]
+[connection signal="pressed" from="NumberAnswer/EnterButton" to="." method="NumberAnswer"]

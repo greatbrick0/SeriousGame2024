@@ -35,7 +35,7 @@ mesh = SubResource("PlaneMesh_rxvrv")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 1, 0, 2, 5)
+transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.5, 0, 2, 4.75)
 material_override = ExtResource("3_jmnb6")
 mesh = SubResource("BoxMesh_0wbba")
 skeleton = NodePath("../MeshInstance3D")
@@ -46,7 +46,7 @@ skeleton = NodePath("../MeshInstance3D")
 shape = SubResource("BoxShape3D_j420c")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 1, 0, 2, -5)
+transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.5, 0, 2, -4.75)
 material_override = ExtResource("3_jmnb6")
 mesh = SubResource("BoxMesh_0wbba")
 skeleton = NodePath("../MeshInstance3D")
@@ -57,7 +57,7 @@ skeleton = NodePath("../MeshInstance3D")
 shape = SubResource("BoxShape3D_j420c")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 10, 5, 2, 0)
+transform = Transform3D(0.5, 0, 0, 0, 4, 0, 0, 0, 10, 4.75, 2, 0)
 material_override = ExtResource("3_jmnb6")
 mesh = SubResource("BoxMesh_0wbba")
 skeleton = NodePath("../MeshInstance3D")
