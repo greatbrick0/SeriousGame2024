@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://83x077gg67rp"]
+[gd_scene load_steps=3 format=3 uid="uid://83x077gg67rp"]
 
 [ext_resource type="Script" path="res://Scripts/information_panel.gd" id="1_04ine"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcqix"]
+bg_color = Color(0.162066, 0.162066, 0.162065, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="InformationPanel" type="Panel"]
 custom_minimum_size = Vector2(200, 100)
@@ -9,24 +16,28 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -150.0
+offset_left = -170.0
 offset_top = -230.0
-offset_right = 150.0
+offset_right = 170.0
 offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xcqix")
 script = ExtResource("1_04ine")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = 20.0
 offset_top = 10.0
+offset_right = -20.0
 offset_bottom = 120.0
 grow_horizontal = 2
 text = "Some Text"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1

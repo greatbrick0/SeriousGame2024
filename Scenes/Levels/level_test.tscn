@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl1ycvb2s7eky"]
+[gd_scene load_steps=6 format=3 uid="uid://dl1ycvb2s7eky"]
 
 [ext_resource type="PackedScene" uid="uid://donho2hi1a1k3" path="res://Scenes/player.tscn" id="1_iuxj4"]
 [ext_resource type="PackedScene" uid="uid://dipeayo17fumu" path="res://Scenes/room.tscn" id="2_02c20"]
 [ext_resource type="PackedScene" uid="uid://c2jvxwal0ywq0" path="res://Scenes/npc.tscn" id="3_kkxdx"]
+[ext_resource type="PackedScene" uid="uid://ui0u21aara8j" path="res://Scenes/hallway.tscn" id="4_4bw1b"]
 
 [sub_resource type="Environment" id="Environment_24vcw"]
 
@@ -10,7 +11,7 @@
 
 [node name="Player" parent="." instance=ExtResource("1_iuxj4")]
 unique_name_in_owner = true
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, -3)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.5, 1.5, -3)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_24vcw")
@@ -19,6 +20,36 @@ environment = SubResource("Environment_24vcw")
 transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 5, 0)
 
 [node name="Room1" parent="." instance=ExtResource("2_02c20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
+
+[node name="Room2" parent="." instance=ExtResource("2_02c20")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.5, 0, 0)
 
 [node name="NPC" parent="." instance=ExtResource("3_kkxdx")]
-transform = Transform3D(-0.708266, 0, 0.705946, 0, 1, 0, -0.705946, 0, -0.708266, -3.19063, 0.5, 2.83084)
+transform = Transform3D(-0.708266, 0, 0.705946, 0, 1, 0, -0.705946, 0, -0.708266, 4.309, 0.5, 2.831)
+
+[node name="NPC2" parent="." instance=ExtResource("3_kkxdx")]
+transform = Transform3D(0.705872, 0, 0.70834, 0, 1, 0, -0.70834, 0, 0.705872, 4.309, 0.5, -3.34)
+npcName = "Student"
+npcMonologue = "I hear the professor in the other room knows more about vaping. "
+heightMult = 0.85
+
+[node name="Hallway" parent="." instance=ExtResource("4_4bw1b")]
+
+[node name="Hallway2" parent="." instance=ExtResource("4_4bw1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Hallway3" parent="." instance=ExtResource("4_4bw1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Hallway4" parent="." instance=ExtResource("4_4bw1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+
+[node name="Hallway5" parent="." instance=ExtResource("4_4bw1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="Hallway6" parent="." instance=ExtResource("4_4bw1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+
+[node name="Hallway7" parent="." instance=ExtResource("4_4bw1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
