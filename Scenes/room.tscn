@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://dipeayo17fumu"]
+
+[ext_resource type="Material" uid="uid://cbl2oolktqj6l" path="res://Materials/RoomFloorMat.tres" id="1_ec22g"]
+[ext_resource type="Material" uid="uid://c5osm2distovy" path="res://Materials/CeilingMat.tres" id="1_l3yfv"]
+[ext_resource type="Material" uid="uid://crievd573bvcl" path="res://Materials/RoomWallMat.tres" id="3_jmnb6"]
+[ext_resource type="Material" uid="uid://dlln7s2kg30ew" path="res://Materials/LightBulbMat.tres" id="4_vlnxy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0wbba"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j420c"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_60p8d"]
+
+[node name="Room" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+material_override = ExtResource("1_ec22g")
+mesh = SubResource("BoxMesh_0wbba")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_j420c")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 4.5, 0)
+material_override = ExtResource("1_l3yfv")
+mesh = SubResource("BoxMesh_0wbba")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D"]
+shape = SubResource("BoxShape3D_j420c")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 1, 0, 2, 5)
+material_override = ExtResource("3_jmnb6")
+mesh = SubResource("BoxMesh_0wbba")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+shape = SubResource("BoxShape3D_j420c")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 1, 0, 2, -5)
+material_override = ExtResource("3_jmnb6")
+mesh = SubResource("BoxMesh_0wbba")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D4/StaticBody3D"]
+shape = SubResource("BoxShape3D_j420c")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 10, 5, 2, 0)
+material_override = ExtResource("3_jmnb6")
+mesh = SubResource("BoxMesh_0wbba")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D5/StaticBody3D"]
+shape = SubResource("BoxShape3D_j420c")
+
+[node name="Bulb" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2, 4, 0)
+material_override = ExtResource("4_vlnxy")
+mesh = SubResource("SphereMesh_60p8d")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Bulb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+light_specular = 4.0
+light_bake_mode = 1
+omni_range = 10.0
+omni_attenuation = 0.5
+
+[node name="Bulb2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2, 4, 0)
+material_override = ExtResource("4_vlnxy")
+mesh = SubResource("SphereMesh_60p8d")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Bulb2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+light_specular = 4.0
+light_bake_mode = 1
+omni_range = 10.0
+omni_attenuation = 0.5

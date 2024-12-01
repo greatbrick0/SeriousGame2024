@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxwxq7e86qyvi"]
+[gd_scene load_steps=3 format=3 uid="uid://cxwxq7e86qyvi"]
 
 [ext_resource type="Script" path="res://Scripts/hud_manager.gd" id="1_q2hsi"]
+[ext_resource type="PackedScene" uid="uid://xkvcu2q0qn5v" path="res://Scenes/Hud Elements/pause_menu.tscn" id="2_n5ox1"]
 
 [node name="HudManager" type="Node"]
 script = ExtResource("1_q2hsi")
+pauseMenuRef = ExtResource("2_n5ox1")
 
 [node name="WalkingHud" type="CanvasLayer" parent="."]
 

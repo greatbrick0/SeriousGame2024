@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://83x077gg67rp"]
 
-[ext_resource type="Script" path="res://Scripts/information_panel.gd" id="1_w5o1v"]
+[ext_resource type="Script" path="res://Scripts/information_panel.gd" id="1_04ine"]
 
 [node name="InformationPanel" type="Panel"]
 custom_minimum_size = Vector2(200, 100)
@@ -15,7 +15,7 @@ offset_right = 150.0
 offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("1_w5o1v")
+script = ExtResource("1_04ine")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
