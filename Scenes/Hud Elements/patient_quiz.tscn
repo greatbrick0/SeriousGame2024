@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dawkph3wbwxd"]
+[gd_scene load_steps=7 format=3 uid="uid://dawkph3wbwxd"]
 
 [ext_resource type="Script" path="res://Scripts/patient_quiz.gd" id="1_1gbpy"]
 [ext_resource type="Script" path="res://Scripts/QuizQuestion.gd" id="2_w34x0"]
@@ -24,6 +24,13 @@ questionType = 3
 questionAnswer = "94"
 options = Array[String](["%"])
 
+[sub_resource type="Resource" id="Resource_pdlrg"]
+script = ExtResource("2_w34x0")
+questionText = "asdg?"
+questionType = 1
+questionAnswer = "true"
+options = Array[String](["yes", "no"])
+
 [node name="PatientQuiz" type="Panel"]
 custom_minimum_size = Vector2(200, 100)
 anchors_preset = 7
@@ -39,7 +46,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xcqix")
 script = ExtResource("1_1gbpy")
-questions = Array[ExtResource("2_w34x0")]([SubResource("Resource_v8wnj"), SubResource("Resource_icwor")])
+questions = Array[ExtResource("2_w34x0")]([SubResource("Resource_v8wnj"), SubResource("Resource_icwor"), SubResource("Resource_pdlrg")])
 
 [node name="Result" type="Control" parent="."]
 visible = false
@@ -141,6 +148,53 @@ theme_override_font_sizes/font_size = 12
 text = "Option 4
 "
 
+[node name="TwoChoiceQuestion" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TwoChoiceQuestion"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = 60.0
+grow_horizontal = 2
+text = "What is EVALI?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HSplit" type="HBoxContainer" parent="TwoChoiceQuestion"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 80.0
+offset_right = -10.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TrueButton" type="Button" parent="TwoChoiceQuestion/HSplit"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "y"
+
+[node name="FalseButton" type="Button" parent="TwoChoiceQuestion/HSplit"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "n"
+
 [node name="NumberAnswer" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -194,4 +248,6 @@ text = "Enter
 [connection signal="pressed" from="FourChoiceQuestion/Panel/Answer2" to="." method="FourChoiceAnswer" binds= [1]]
 [connection signal="pressed" from="FourChoiceQuestion/Panel/Answer3" to="." method="FourChoiceAnswer" binds= [2]]
 [connection signal="pressed" from="FourChoiceQuestion/Panel/Answer4" to="." method="FourChoiceAnswer" binds= [3]]
+[connection signal="pressed" from="TwoChoiceQuestion/HSplit/TrueButton" to="." method="TwoChoiceAnswer" binds= [true]]
+[connection signal="pressed" from="TwoChoiceQuestion/HSplit/FalseButton" to="." method="TwoChoiceAnswer" binds= [false]]
 [connection signal="pressed" from="NumberAnswer/EnterButton" to="." method="NumberAnswer"]

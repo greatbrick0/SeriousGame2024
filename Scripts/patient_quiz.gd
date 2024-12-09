@@ -11,6 +11,10 @@ func SetUpQuestion(qq: QuizQuestion) -> void:
 	match qq.questionType:
 		QuizQuestion.qTypes.FourChoice:
 			SetUpFourChoice(qq)
+		QuizQuestion.qTypes.TwoChoice:
+			SetUpTwoChoice(qq)
+		QuizQuestion.qTypes.ShortAnswer:
+			pass
 		QuizQuestion.qTypes.NumberAnswer:
 			SetUpNumberAnswer(qq)
 
@@ -19,6 +23,12 @@ func SetUpFourChoice(qq: QuizQuestion) -> void:
 	$FourChoiceQuestion/Panel/Label.text = qq.questionText
 	for ii in 4:
 		$FourChoiceQuestion/Panel.get_node("Answer"+str(ii+1)).text = qq.options[ii]
+
+func SetUpTwoChoice(qq: QuizQuestion) -> void:
+	$TwoChoiceQuestion.visible = true
+	$TwoChoiceQuestion/Label.text = qq.questionText
+	$TwoChoiceQuestion/HSplit/TrueButton.text = qq.options[0]
+	$TwoChoiceQuestion/HSplit/FalseButton.text = qq.options[1]
 
 func SetUpNumberAnswer(qq: QuizQuestion) -> void:
 	$NumberAnswer.visible = true
@@ -31,6 +41,13 @@ func FourChoiceAnswer(buttonIndex: int) -> void:
 		SetResults(true, "That is correct!")
 	else:
 		SetResults(false, "Incorrect! The answer was: " + questions[questionIndex].questionAnswer + "!")
+
+func TwoChoiceAnswer(response: bool) -> void:
+	$TwoChoiceQuestion.visible = false
+	if(str(response).to_lower() == questions[questionIndex].questionAnswer.to_lower()):
+		SetResults(true, "That is correct!")
+	else:
+		SetResults(false, "That is incorrect!")
 
 func NumberAnswer() -> void:
 	$NumberAnswer.visible = false
