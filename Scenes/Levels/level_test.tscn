@@ -43,20 +43,44 @@ transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 
 [node name="Room1" parent="Rooms" instance=ExtResource("2_02c20")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
 
+[node name="Label3D" type="Label3D" parent="Rooms/Room1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.501, 3.2, -2)
+text = "107"
+
 [node name="Room4" parent="Rooms" instance=ExtResource("2_02c20")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 10)
+
+[node name="Label3D" type="Label3D" parent="Rooms/Room4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.501, 3.2, -2)
+text = "109"
 
 [node name="Room2" parent="Rooms" instance=ExtResource("2_02c20")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.5, 0, 0)
 
+[node name="Label3D" type="Label3D" parent="Rooms/Room2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.501, 3.2, -2)
+text = "108"
+
 [node name="Room3" parent="Rooms" instance=ExtResource("2_02c20")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.5, 0, 10)
+
+[node name="Label3D" type="Label3D" parent="Rooms/Room3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.501, 3.2, -2)
+text = "110"
 
 [node name="Room5" parent="Rooms" instance=ExtResource("2_02c20")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -10)
 
+[node name="Label3D" type="Label3D" parent="Rooms/Room5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.501, 3.2, -2)
+text = "105"
+
 [node name="Room6" parent="Rooms" instance=ExtResource("2_02c20")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.5, 0, -10)
+
+[node name="Label3D" type="Label3D" parent="Rooms/Room6"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.501, 3.2, -2)
+text = "106"
 
 [node name="Hallways" type="Node3D" parent="."]
 
@@ -100,7 +124,7 @@ npcMonologue = "Vaping is bad."
 [node name="NPC2" parent="." instance=ExtResource("3_kkxdx")]
 transform = Transform3D(0.705872, 0, 0.70834, 0, 1, 0, -0.70834, 0, 0.705872, 4.309, 0.5, -3.34)
 npcName = "Spencer"
-npcMonologue = "I hear the professor in the other room knows more about vaping. "
+npcMonologue = "I hear the professor in room 108 knows more about EVALI. "
 heightMult = 0.85
 
 [node name="NPC3" parent="." instance=ExtResource("3_kkxdx")]
