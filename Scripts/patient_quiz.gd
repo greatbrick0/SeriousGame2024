@@ -14,7 +14,7 @@ func SetUpQuestion(qq: QuizQuestion) -> void:
 		QuizQuestion.qTypes.TwoChoice:
 			SetUpTwoChoice(qq)
 		QuizQuestion.qTypes.ShortAnswer:
-			pass
+			SetUpShortAnswer(qq)
 		QuizQuestion.qTypes.NumberAnswer:
 			SetUpNumberAnswer(qq)
 
@@ -30,10 +30,17 @@ func SetUpTwoChoice(qq: QuizQuestion) -> void:
 	$TwoChoiceQuestion/HSplit/TrueButton.text = qq.options[0]
 	$TwoChoiceQuestion/HSplit/FalseButton.text = qq.options[1]
 
+func SetUpShortAnswer(qq: QuizQuestion) -> void:
+	$ShortAnswer.visible = true
+	$ShortAnswer/Label.text = qq.questionText
+	$ShortAnswer/TextEdit.placeholder_text = qq.options[0]
+	$ShortAnswer/TextEdit.text = ""
+
 func SetUpNumberAnswer(qq: QuizQuestion) -> void:
 	$NumberAnswer.visible = true
 	$NumberAnswer/Label.text = qq.questionText
 	$NumberAnswer/SpinBox.suffix = qq.options[0]
+	$NumberAnswer/SpinBox.value = 0 if len(qq.options) == 1 else int(qq.options[1])
 
 func FourChoiceAnswer(buttonIndex: int) -> void:
 	$FourChoiceQuestion.visible = false
@@ -48,6 +55,14 @@ func TwoChoiceAnswer(response: bool) -> void:
 		SetResults(true, "That is correct!")
 	else:
 		SetResults(false, "That is incorrect!")
+
+func ShortAnswer() -> void:
+	if($ShortAnswer/TextEdit.text == ""): return
+	$ShortAnswer.visible = false
+	if($ShortAnswer/TextEdit.text.to_lower() == questions[questionIndex].questionAnswer.to_lower()):
+		SetResults(true, "\"" + $ShortAnswer/TextEdit.text + "\" is correct!")
+	else:
+		SetResults(false, "The answer was not \"" + $ShortAnswer/TextEdit.text + "\"! \nThe answer was \"" + questions[questionIndex].questionAnswer + "\"!")
 
 func NumberAnswer() -> void:
 	$NumberAnswer.visible = false
