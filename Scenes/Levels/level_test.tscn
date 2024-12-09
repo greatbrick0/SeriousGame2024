@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dl1ycvb2s7eky"]
+[gd_scene load_steps=16 format=3 uid="uid://dl1ycvb2s7eky"]
 
 [ext_resource type="PackedScene" uid="uid://donho2hi1a1k3" path="res://Scenes/player.tscn" id="1_iuxj4"]
 [ext_resource type="PackedScene" uid="uid://dipeayo17fumu" path="res://Scenes/room.tscn" id="2_02c20"]
@@ -11,6 +11,9 @@
 [ext_resource type="Material" uid="uid://jjcxry32x2bg" path="res://Materials/BoardMat.tres" id="9_8ns7v"]
 
 [sub_resource type="Environment" id="Environment_24vcw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_itsnx"]
+size = Vector3(4, 3, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_nm7cy"]
 
@@ -40,8 +43,20 @@ transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 
 [node name="Room1" parent="Rooms" instance=ExtResource("2_02c20")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
 
+[node name="Room4" parent="Rooms" instance=ExtResource("2_02c20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 10)
+
 [node name="Room2" parent="Rooms" instance=ExtResource("2_02c20")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.5, 0, 0)
+
+[node name="Room3" parent="Rooms" instance=ExtResource("2_02c20")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.5, 0, 10)
+
+[node name="Room5" parent="Rooms" instance=ExtResource("2_02c20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -10)
+
+[node name="Room6" parent="Rooms" instance=ExtResource("2_02c20")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.5, 0, -10)
 
 [node name="Hallways" type="Node3D" parent="."]
 
@@ -64,6 +79,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
 
 [node name="Hallway7" parent="Hallways" instance=ExtResource("4_4bw1b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+
+[node name="Barrier1" type="StaticBody3D" parent="Hallways"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hallways/Barrier1"]
+shape = SubResource("BoxShape3D_itsnx")
+
+[node name="Barrier2" type="StaticBody3D" parent="Hallways"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hallways/Barrier2"]
+shape = SubResource("BoxShape3D_itsnx")
 
 [node name="NPC" parent="." instance=ExtResource("3_kkxdx")]
 transform = Transform3D(-0.708266, 0, 0.705946, 0, 1, 0, -0.705946, 0, -0.708266, 4.309, 0.5, 2.831)
