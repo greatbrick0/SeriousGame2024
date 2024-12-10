@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dawkph3wbwxd"]
+[gd_scene load_steps=10 format=3 uid="uid://dawkph3wbwxd"]
 
 [ext_resource type="Script" path="res://Scripts/patient_quiz.gd" id="1_1gbpy"]
 [ext_resource type="Script" path="res://Scripts/QuizQuestion.gd" id="2_w34x0"]
@@ -24,19 +24,33 @@ questionType = 3
 questionAnswer = "94"
 options = Array[String](["%"])
 
-[sub_resource type="Resource" id="Resource_pdlrg"]
-script = ExtResource("2_w34x0")
-questionText = "asdg?"
-questionType = 1
-questionAnswer = "true"
-options = Array[String](["yes", "no"])
-
 [sub_resource type="Resource" id="Resource_os0fp"]
 script = ExtResource("2_w34x0")
-questionText = "?"
+questionText = "What is the name of the company that developed vapes in Beijing?"
 questionType = 2
-questionAnswer = "qwerty"
-options = Array[String](["keyboard..."])
+questionAnswer = "Juul Laboratories"
+options = Array[String](["____ Laboratories"])
+
+[sub_resource type="Resource" id="Resource_pdlrg"]
+script = ExtResource("2_w34x0")
+questionText = "What year was a prototypal form of vape first made?"
+questionType = 3
+questionAnswer = "2005"
+options = Array[String](["", "1999"])
+
+[sub_resource type="Resource" id="Resource_squyl"]
+script = ExtResource("2_w34x0")
+questionText = "How many flavours of vapes are there?"
+questionType = 1
+questionAnswer = "false"
+options = Array[String](["Under 8000", "Over 8000"])
+
+[sub_resource type="Resource" id="Resource_vmaek"]
+script = ExtResource("2_w34x0")
+questionText = "The long-term effects of using vapes are..."
+questionType = 0
+questionAnswer = "Unknown"
+options = Array[String](["More dangerous than the effects of using cigarettes.", "Less dangerous than the effects of using cigarettes.", "The same as the effects of using cigarettes.", "Unknown."])
 
 [node name="PatientQuiz" type="Panel"]
 custom_minimum_size = Vector2(200, 100)
@@ -53,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xcqix")
 script = ExtResource("1_1gbpy")
-questions = Array[ExtResource("2_w34x0")]([SubResource("Resource_v8wnj"), SubResource("Resource_icwor"), SubResource("Resource_pdlrg"), SubResource("Resource_os0fp")])
+questions = Array[ExtResource("2_w34x0")]([SubResource("Resource_v8wnj"), SubResource("Resource_icwor"), SubResource("Resource_os0fp"), SubResource("Resource_pdlrg"), SubResource("Resource_squyl"), SubResource("Resource_vmaek")])
 
 [node name="Result" type="Control" parent="."]
 visible = false
@@ -288,6 +302,8 @@ offset_right = 70.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+allow_greater = true
+allow_lesser = true
 alignment = 1
 custom_arrow_step = 1.0
 

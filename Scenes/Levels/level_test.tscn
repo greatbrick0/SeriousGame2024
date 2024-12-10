@@ -121,11 +121,47 @@ transform = Transform3D(-0.708266, 0, 0.705946, 0, 1, 0, -0.705946, 0, -0.708266
 npcName = "Mr. Schaefer"
 npcMonologue = "Vaping is bad."
 
+[node name="NPC8" parent="." instance=ExtResource("3_kkxdx")]
+transform = Transform3D(-0.971072, 0, -0.238788, 0, 1, 0, 0.238788, 0, -0.971072, 5.1651, 0.5, -10.5435)
+npcName = "Mr. Mondelli"
+npcMonologue = "The perceived safety of vaping has a key part to play in its popularity. The long-term effects of the substance have yet to be properly researched. "
+heightMult = 1.05
+
+[node name="NPC9" parent="." instance=ExtResource("3_kkxdx")]
+transform = Transform3D(-0.285772, 0, -0.958298, 0, 1, 0, 0.958298, 0, -0.285772, 6.34445, 0.5, -12.7812)
+npcName = "Mr. Harley"
+npcMonologue = "There are over 8000 flavours of vapes. "
+heightMult = 1.05
+
+[node name="NPC5" parent="." instance=ExtResource("3_kkxdx")]
+transform = Transform3D(0.998661, 0, 0.0517431, 0, 1, 0, -0.0517431, 0, 0.998661, -7.79308, 0.5, -12.491)
+npcName = "Mr. MacCarthy"
+npcMonologue = "In 2005, a prototypal form of vape was developed in Beijing, which later became Juul Labroratories. "
+heightMult = 1.05
+
+[node name="NPC6" parent="." instance=ExtResource("3_kkxdx")]
+transform = Transform3D(-0.980952, 0, -0.194251, 0, 1, 0, 0.194251, 0, -0.980952, -6.83689, 0.5, -10.2441)
+npcName = "Jean-Luc"
+npcMonologue = "I never knew about the origins of vaping until now. "
+heightMult = 0.95
+
+[node name="NPC7" parent="." instance=ExtResource("3_kkxdx")]
+transform = Transform3D(-0.948462, 0, 0.316891, 0, 1, 0, -0.316891, 0, -0.948462, -8.20693, 0.5, -10.2379)
+npcName = "Conor"
+npcMonologue = "So the first \"flavor cigarette\" was commercialized in 1979, and vapes were first developed in 2005..."
+heightMult = 0.9
+
 [node name="NPC2" parent="." instance=ExtResource("3_kkxdx")]
 transform = Transform3D(0.705872, 0, 0.70834, 0, 1, 0, -0.70834, 0, 0.705872, 4.309, 0.5, -3.34)
 npcName = "Spencer"
 npcMonologue = "I hear the professor in room 108 knows more about EVALI. "
 heightMult = 0.85
+
+[node name="NPC4" parent="." instance=ExtResource("3_kkxdx")]
+transform = Transform3D(-0.121349, 0, 0.99261, 0, 1, 0, -0.99261, 0, -0.121349, -1.74677, 0.5, -5.58315)
+npcName = "Gabriel"
+npcMonologue = "The people in room 105 and room 106 are studying the origins of vaping. "
+heightMult = 0.95
 
 [node name="NPC3" parent="." instance=ExtResource("3_kkxdx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.21076, 0.5, -0.310987)
