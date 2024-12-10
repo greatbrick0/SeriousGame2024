@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dawkph3wbwxd"]
+[gd_scene load_steps=13 format=3 uid="uid://dawkph3wbwxd"]
 
 [ext_resource type="Script" path="res://Scripts/patient_quiz.gd" id="1_1gbpy"]
 [ext_resource type="Script" path="res://Scripts/QuizQuestion.gd" id="2_w34x0"]
@@ -49,8 +49,29 @@ options = Array[String](["Under 8000", "Over 8000"])
 script = ExtResource("2_w34x0")
 questionText = "The long-term effects of using vapes are..."
 questionType = 0
-questionAnswer = "Unknown"
+questionAnswer = "Unknown."
 options = Array[String](["More dangerous than the effects of using cigarettes.", "Less dangerous than the effects of using cigarettes.", "The same as the effects of using cigarettes.", "Unknown."])
+
+[sub_resource type="Resource" id="Resource_pync5"]
+script = ExtResource("2_w34x0")
+questionText = "What is the name of the chemical that makes vaping addictive?"
+questionType = 2
+questionAnswer = "Nicotine"
+options = Array[String](["Found in tabacco plants"])
+
+[sub_resource type="Resource" id="Resource_ff1h3"]
+script = ExtResource("2_w34x0")
+questionText = "Nicotine addiction..."
+questionType = 1
+questionAnswer = "true"
+options = Array[String](["Decreases attention span.", "Increases attention span."])
+
+[sub_resource type="Resource" id="Resource_s74c7"]
+script = ExtResource("2_w34x0")
+questionText = "What can cause inflammation in the cornea?"
+questionType = 0
+questionAnswer = "Continuous use of vapes"
+options = Array[String](["Continuous use of vapes", "Spontaneous use of vapes", "Continuous use of cigarettes", "Spontaneous use of cigarettes"])
 
 [node name="PatientQuiz" type="Panel"]
 custom_minimum_size = Vector2(200, 100)
@@ -67,7 +88,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xcqix")
 script = ExtResource("1_1gbpy")
-questions = Array[ExtResource("2_w34x0")]([SubResource("Resource_v8wnj"), SubResource("Resource_icwor"), SubResource("Resource_os0fp"), SubResource("Resource_pdlrg"), SubResource("Resource_squyl"), SubResource("Resource_vmaek")])
+questions = Array[ExtResource("2_w34x0")]([SubResource("Resource_v8wnj"), SubResource("Resource_icwor"), SubResource("Resource_os0fp"), SubResource("Resource_pdlrg"), SubResource("Resource_squyl"), SubResource("Resource_vmaek"), SubResource("Resource_pync5"), SubResource("Resource_ff1h3"), SubResource("Resource_s74c7")])
 
 [node name="Result" type="Control" parent="."]
 visible = false
@@ -210,11 +231,13 @@ alignment = 1
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 text = "y"
+autowrap_mode = 3
 
 [node name="FalseButton" type="Button" parent="TwoChoiceQuestion/HSplit"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 text = "n"
+autowrap_mode = 3
 
 [node name="ShortAnswer" type="Control" parent="."]
 visible = false
@@ -246,9 +269,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
+offset_left = -120.0
 offset_top = -20.0
-offset_right = 100.0
+offset_right = 120.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2

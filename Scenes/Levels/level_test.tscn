@@ -121,6 +121,17 @@ transform = Transform3D(-0.708266, 0, 0.705946, 0, 1, 0, -0.705946, 0, -0.708266
 npcName = "Mr. Schaefer"
 npcMonologue = "Vaping is bad."
 
+[node name="NPC10" parent="." instance=ExtResource("3_kkxdx")]
+transform = Transform3D(-0.481387, 0, -0.876509, 0, 1, 0, 0.876509, 0, -0.481387, 5.05666, 0.5, 9.76937)
+npcName = "Kaelan"
+npcMonologue = "E-cigarette vapors have been found to have negative impacts on the eyes of continuous vape users. "
+
+[node name="NPC11" parent="." instance=ExtResource("3_kkxdx")]
+transform = Transform3D(-0.0189358, 0, -0.999821, 0, 1, 0, 0.999821, 0, -0.0189358, 5.72697, 0.5, 7.55678)
+npcName = "Mr. Kapralos"
+npcMonologue = "Vapes are addictive due to the inclusion of nicotine. Nicotine-based addiction causes lowered attention spans in teenagers. "
+heightMult = 1.08
+
 [node name="NPC8" parent="." instance=ExtResource("3_kkxdx")]
 transform = Transform3D(-0.971072, 0, -0.238788, 0, 1, 0, 0.238788, 0, -0.971072, 5.1651, 0.5, -10.5435)
 npcName = "Mr. Mondelli"
